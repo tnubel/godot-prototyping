@@ -1,0 +1,17 @@
+[gd_scene format=1]
+
+[node name="rtl_Main" type="RichTextLabel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 511.0
+margin/top = 173.0
+margin/right = 944.0
+margin/bottom = 213.0
+bbcode/enabled = false
+bbcode/bbcode = "Hello."
+visible_characters = -1
+
+

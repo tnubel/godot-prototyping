@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="" type="PackedScene" id=2]
+
+[sub_resource type="PackedScene" id=1]
+
+_bundled = { "base_scene":0, "conn_count":0, "conns":IntArray(  ), "editable_instances":[  ], "names":StringArray( "ui" ), "node_count":1, "node_paths":[  ], "nodes":IntArray( -1, -1, 2147483647, 0, -1, 0, 0 ), "variants":[ ExtResource( 1 ) ], "version":2 }
+
+[node name="ui" instance=ExtResource( 2 )]
+
+

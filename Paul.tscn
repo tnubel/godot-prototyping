@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://paul.gd" type="Script" id=1]
+[ext_resource path="res://paulhead.png" type="Texture" id=2]
+[ext_resource path="res://paultorso.png" type="Texture" id=3]
+[ext_resource path="res://paulhand.png" type="Texture" id=4]
+[ext_resource path="res://paulfoot.png" type="Texture" id=5]
+
+[node name="Paul" type="KinematicBody2D"]
+
+editor/display_folded = true
+transform/pos = Vector2( 560.709, 284.209 )
+transform/scale = Vector2( 1.07714, 1.01775 )
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 1 )
+
+[node name="paulhead" type="Sprite" parent="."]
+
+transform/pos = Vector2( 36.1885, -80.9636 )
+transform/scale = Vector2( 0.179313, 0.179313 )
+z/z = 1
+texture = ExtResource( 2 )
+
+[node name="paultorso" type="Sprite" parent="."]
+
+transform/pos = Vector2( 36.4661, -45.8079 )
+transform/scale = Vector2( 0.151349, 0.236646 )
+texture = ExtResource( 3 )
+
+[node name="paulhand_L" type="Sprite" parent="."]
+
+transform/pos = Vector2( 74.2489, -48.6605 )
+transform/scale = Vector2( 0.156792, 0.156792 )
+z/z = -1
+texture = ExtResource( 4 )
+offset = Vector2( 4.38637, 2.90983 )
+modulate = Color( 0.640625, 0.640625, 0.640625, 1 )
+
+[node name="paulhand_R" type="Sprite" parent="."]
+
+transform/pos = Vector2( 19.7494, -41.1018 )
+transform/scale = Vector2( 0.156792, 0.156792 )
+texture = ExtResource( 4 )
+offset = Vector2( -18.2837, 3.06875 )
+
+[node name="paulfoot_L" type="Sprite" parent="."]
+
+transform/pos = Vector2( 47.8131, -15.4091 )
+transform/scale = Vector2( 0.179313, 0.179313 )
+texture = ExtResource( 5 )
+modulate = Color( 0.550781, 0.359299, 0.359299, 1 )
+
+[node name="paulfoot_R" type="Sprite" parent="."]
+
+transform/pos = Vector2( 22.9408, -16.0201 )
+transform/scale = Vector2( 0.179313, 0.179313 )
+texture = ExtResource( 5 )
+
+
