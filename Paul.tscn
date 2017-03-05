@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://paul.gd" type="Script" id=1]
 [ext_resource path="res://paulhead.png" type="Texture" id=2]
@@ -6,12 +6,19 @@
 [ext_resource path="res://paulhand.png" type="Texture" id=4]
 [ext_resource path="res://paulfoot.png" type="Texture" id=5]
 
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
 [node name="Paul" type="KinematicBody2D"]
 
-editor/display_folded = true
 transform/pos = Vector2( 560.709, 284.209 )
 transform/scale = Vector2( 1.07714, 1.01775 )
 input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 3.53067, 0, 0, 3.40603, 31.2874, -26.1472 )
+shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
@@ -58,5 +65,13 @@ modulate = Color( 0.550781, 0.359299, 0.359299, 1 )
 transform/pos = Vector2( 22.9408, -16.0201 )
 transform/scale = Vector2( 0.179313, 0.179313 )
 texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+transform/pos = Vector2( 31.2874, -26.1472 )
+transform/scale = Vector2( 3.53067, 3.40603 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
 
 

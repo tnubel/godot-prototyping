@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://animationplayer.gd" type="Script" id=1]
 [ext_resource path="res://Paul.tscn" type="PackedScene" id=2]
 [ext_resource path="res://TouchUI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Wall.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Animation" id=1]
 
@@ -101,9 +102,9 @@ scale = Vector2( 1, 1 )
 anchor/top = 1
 anchor/bottom = 1
 rect/scale = Vector2( 3, 3 )
-margin/left = 13.0
+margin/left = 17.0
 margin/top = 422.0
-margin/right = 187.0
+margin/right = 191.0
 margin/bottom = 285.0
 
 [node name="Label" type="Label" parent="CanvasLayer"]
@@ -140,5 +141,17 @@ custom_colors/font_color_shadow = Color( 0.710938, 0, 1, 1 )
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="Wall" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 830.471, 94.3251 )
+
+[node name="Wall1" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 965.807, 92.2746 )
+
+[node name="Wall2" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1101.14, 88.1735 )
 
 
