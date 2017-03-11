@@ -12,7 +12,7 @@ func _fixed_process(delta):
 		return
 	move(advance_dir*delta*ADVANCE_SPEED)
 	if (is_colliding()):
-#		get_node("anim").play("explode")
+		get_node("AnimationPlayer").play("explode")
 		hit = true
 
 
@@ -21,4 +21,5 @@ func _ready():
 
 
 func _on_Timer_timeout():
-	self.queue_free();
+	pass
+	#self.queue_free();

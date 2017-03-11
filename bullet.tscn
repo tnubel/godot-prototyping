@@ -1,41 +1,71 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://bullet.gd" type="Script" id=1]
 [ext_resource path="res://shot_colorramp.tres" type="ColorRamp" id=2]
+[ext_resource path="res://shot.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
+[sub_resource type="Animation" id=2]
+
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 1 ), "transitions":FloatArray( 1 ), "values":[ { "args":[  ], "method":"queue_free" } ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Explosion:config/emitting")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.3 ), "transitions":FloatArray( 1, 1 ), "update":1, "values":[ true, false ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Shot:config/emitting")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 0.1 ), "transitions":FloatArray( 1, 1 ), "update":1, "values":[ true, false ] }
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
 
 input/pickable = false
-collision/layers = 1
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1.84492, 0, 0, 1.79541, -0.846042, 0.302706 )
+shapes/0/trigger = false
+collision/layers = 2
 collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 1 )
 
-[node name="Particles2D" type="Particles2D" parent="."]
+[node name="Shot" type="Particles2D" parent="."]
 
-config/amount = 64
+config/amount = 63
 config/lifetime = 2.0
-config/explosiveness = 0.94
 params/direction = 0.0
 params/spread = 180.0
-params/linear_velocity = 10.0
-params/spin_velocity = 0.0
-params/orbit_velocity = 0.0
+params/linear_velocity = 16.0
+params/spin_velocity = 4.0
+params/orbit_velocity = 1.0
 params/gravity_direction = 117.82
 params/gravity_strength = 0.0
-params/radial_accel = 0.0
+params/radial_accel = 5.0
 params/tangential_accel = 0.0
 params/damping = 0.0
 params/initial_angle = 0.0
-params/initial_size = 4.0
+params/initial_size = 7.0
 params/final_size = 1.0
-params/hue_variation = 0.0
+params/hue_variation = 0.02
 params/anim_speed_scale = 1.0
-params/anim_initial_pos = 0.0
+params/anim_initial_pos = 4.0
 randomness/direction = 0.4
 randomness/spread = 0.15
 randomness/spin_velocity = 1.0
-color/color = Color( 0.714844, 0, 0, 1 )
+randomness/initial_size = 0.19
+color/color = Color( 0.0234375, 1, 0.267578, 1 )
 color/color_ramp = ExtResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]
@@ -44,6 +74,53 @@ process_mode = 0
 wait_time = 1.0
 one_shot = true
 autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/explode = SubResource( 2 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="Explosion" type="Particles2D" parent="."]
+
+config/amount = 78
+config/lifetime = 0.47316
+config/emitting = false
+params/direction = 0.0
+params/spread = 180.0
+params/linear_velocity = 70.0
+params/spin_velocity = 30.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 9.8
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 1.0
+params/final_size = 1.0
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+color/color = Color( 1, 0.890625, 0, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+transform/pos = Vector2( -0.846042, 0.302706 )
+transform/scale = Vector2( 1.84492, 1.79541 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="shot" type="Sprite" parent="."]
+
+transform/pos = Vector2( -0.163631, 0.699916 )
+texture = ExtResource( 3 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
