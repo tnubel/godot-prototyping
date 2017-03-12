@@ -5,7 +5,6 @@ extends KinematicBody2D
 const MAX_SPEED = 300.0
 const IDLE_SPEED = 10.0
 const ACCEL = 5.0
-const VSCALE = 0.5
 const SHOOT_INTERVAL = 0.3
 
 var speed = Vector2()
@@ -75,7 +74,6 @@ func _fixed_process(delta):
 		dir = dir.normalized()
 	speed = speed.linear_interpolate(dir*MAX_SPEED, delta*ACCEL)
 	var motion = speed*delta
-	motion.y *= VSCALE
 	motion = move(motion)
 	
 	if (is_colliding()):
