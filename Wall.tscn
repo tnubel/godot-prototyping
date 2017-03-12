@@ -15,8 +15,8 @@ input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( -6.70059, 5.85784e-07, -2.80024e-07, -3.2031, 8.91821, 10.0372 )
 shapes/0/trigger = false
-collision/layers = 3
-collision/mask = 1
+collision/layers = 4
+collision/mask = 7
 collision/margin = 0.08
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
